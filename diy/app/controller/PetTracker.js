@@ -70,7 +70,7 @@ Ext.define('MyApp.controller.PetTracker', {
     onBackButton: function () {
         console.log("Back to home");
         var store = Ext.getStore('PetTracker');
-        store.getProxy().setUrl('http://tourdb-kingston.rhcloud.com/tourdb');
+        store.getProxy().setUrl('http://nodetest-loutilities.rhcloud.com/dogtag/');
         store.load();
         Ext.Viewport.animateActiveItem(this.getPetListPanel(), this.slideRightTransition);
     },
@@ -83,7 +83,7 @@ Ext.define('MyApp.controller.PetTracker', {
         var gmap = this.getPetMap().down("#petMap");
         var geo = gmap.getGeo();
         var g_marks = this.markers;
-        store.getProxy().setUrl('http://tourdb-kingston.rhcloud.com/tourdb')
+        store.getProxy().setUrl('http://nodetest-loutilities.rhcloud.com/dogtag/'
             + geo.getLongitude() + '/' + geo.getLatitude() + '/' + pickerValue["radius"]);
         store.load({
               callback: function (records, options, success) {
