@@ -29,7 +29,7 @@ Ext.define('MyApp.view.MapPanel', {
                 xtype: 'toolbar',
                 docked: 'top',
                 itemId: 'mapToolbar',
-                title: 'DogTag',
+                title: 'Walking Tour of Kingston',
                 items: [
                     {
                         xtype: 'button',

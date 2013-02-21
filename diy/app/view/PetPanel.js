@@ -33,7 +33,7 @@ Ext.define('MyApp.view.PetPanel', {
                 store:'PetTracker',
                 id:'PetList',
                 itemId:'petList',
-                emptyText: "<div>No Dogs Found</div>",
+                emptyText: "<div>No Tours Updated yet</div>",
 //                onItemDisclosure: true,
                 loadingText: "Loading Pets",
                 itemTpl:[
