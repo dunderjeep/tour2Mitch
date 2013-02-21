@@ -26,7 +26,7 @@ Ext.define('MyApp.view.PetPanel', {
             {
                 xtype:'toolbar',
                 docked:'top',
-                title:'DogTag'
+                title:'Walking Tours'
             },
             {
                 xtype:'list',
@@ -35,7 +35,7 @@ Ext.define('MyApp.view.PetPanel', {
                 itemId:'petList',
                 emptyText: "<div>No Tours Updated yet</div>",
 //                onItemDisclosure: true,
-                loadingText: "Loading Pets",
+                loadingText: "Loading Tours",
                 itemTpl:[
                     '<div>{name} is a {description} and is located at {latitude} (latitude) and {longitude} (longitude)</div>'
                 ]
