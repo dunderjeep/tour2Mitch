@@ -26,7 +26,7 @@ Ext.define('MyApp.view.PetPanel', {
             {
                 xtype:'toolbar',
                 docked:'top',
-                title:'Walking Tours'
+                title:'Walking Tours of Kingston'
             },
             {
                 xtype:'list',
