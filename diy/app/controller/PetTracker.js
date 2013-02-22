@@ -125,7 +125,7 @@ Ext.define('MyApp.controller.PetTracker', {
         this.markers.push(dynaMarker);
 
         var infowindow = new google.maps.InfoWindow({
-            content: record.data.description +""
+            content: "We've found your dog sniffing flowers!"
         });
 
         google.maps.event.addListener(dynaMarker, 'click', function () {
