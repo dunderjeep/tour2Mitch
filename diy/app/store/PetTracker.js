@@ -27,7 +27,7 @@ Ext.define('MyApp.store.PetTracker', {
         storeId: 'PetTracker',
         proxy: {
             type: 'jsonp',
-            url: 'http://tourdb-kingston.rhcloud.com/tourdb',
+            url: 'http://tourdb-kingston.rhcloud.com/dogtag',
             reader: {
                 type: 'json',
                 idProperty: '_id',
