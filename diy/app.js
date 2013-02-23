@@ -39,12 +39,12 @@ Ext.application({
         var petList = {
             xtype: 'petListPanel'
         };
-        var petMap = {
-            xtype: 'petMap'
+        var tourMap = {
+            xtype: 'tourMap'
         };
         var radiusPicker = {
             xtype: 'radiusPicker'
         };
-        Ext.Viewport.add([petList, petMap, radiusPicker]);
+        Ext.Viewport.add([petList, tourMap, radiusPicker]);
     }
 });

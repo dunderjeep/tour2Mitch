@@ -24,14 +24,14 @@ Ext.define('MyApp.controller.PetTracker', {
         refs: {
             petListPanel: 'petListPanel',
             petList: '#PetList',
-            petMap: 'petMap',
+            tourMap: 'tourMap',
             radiusPicker: 'radiusPicker'
         },
         control: {
             petListPanel: {
                 petSelectCommand: "onPetSelected"
             },
-            petMap: {
+            tourMap: {
                 backButton: "onBackButton",
                 mapRender: "onMapRender",
                 nearButton: "onNear"
@@ -60,11 +60,11 @@ Ext.define('MyApp.controller.PetTracker', {
     slideRightTransition: { type: 'slide', direction: 'right' },
 
     onPetSelected: function (list, record) {
-        var mapView = this.getPetMap();
+        var mapView = this.gettourMap();
         mapView.setRecord(record);
         Ext.Viewport.animateActiveItem(mapView, this.slideLeftTransition);
 
-        this.renderMap(mapView, mapView.down("#petMap").getMap(), record.data);
+        this.renderMap(mapView, mapView.down("#tourMap").getMap(), record.data);
     },
 
     onBackButton: function () {
@@ -80,7 +80,7 @@ Ext.define('MyApp.controller.PetTracker', {
     },
     onPickerRadiusChange: function(picker, pickerValue) {
         var store = Ext.getStore('PetTracker');
-        var gmap = this.getPetMap().down("#petMap");
+        var gmap = this.gettourMap().down("#tourMap");
         var geo = gmap.getGeo();
         var g_marks = this.markers;
         store.getProxy().setUrl('http://tourdb-kingston.rhcloud.com/dogtag'
@@ -136,7 +136,7 @@ Ext.define('MyApp.controller.PetTracker', {
             map.panTo(position);
         }, 1000);
 
-        var geo = extmap.down("#petMap").getGeo();
+        var geo = extmap.down("#tourMap").getGeo();
         var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
         this.plotRoute(map, currentPosition, position);
 
