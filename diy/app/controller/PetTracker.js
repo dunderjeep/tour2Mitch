@@ -60,7 +60,7 @@ Ext.define('MyApp.controller.PetTracker', {
     slideRightTransition: { type: 'slide', direction: 'right' },
 
     onPetSelected: function (list, record) {
-        var mapView = this.getpetMap();
+        var mapView = this.getPetMap();
         mapView.setRecord(record);
         Ext.Viewport.animateActiveItem(mapView, this.slideLeftTransition);
 
@@ -80,7 +80,7 @@ Ext.define('MyApp.controller.PetTracker', {
     },
     onPickerRadiusChange: function(picker, pickerValue) {
         var store = Ext.getStore('PetTracker');
-        var gmap = this.getpetMap().down("#petMap");
+        var gmap = this.getPetMap().down("#petMap");
         var geo = gmap.getGeo();
         var g_marks = this.markers;
         store.getProxy().setUrl('http://tourdb-kingston.rhcloud.com/dogtag'
