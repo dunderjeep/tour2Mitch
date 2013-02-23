@@ -107,6 +107,10 @@ Ext.define('MyApp.controller.PetTracker', {
 
     renderMap: function (extmap, map, record) {
          //erase old markers
+         if (this.markers.length > 0) 
+             Ext.each(this.markers, function (marker) {
+                 var currentPosition = marker.getPosition();
+             });
 		 if (this.markers.length == 0){
 			 var geo = extmap.down("#tourMap").getGeo();
 			 var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
@@ -135,8 +139,8 @@ Ext.define('MyApp.controller.PetTracker', {
             map.panTo(position);
         }, 1000);
 
-        var geo = extmap.down("#tourMap").getGeo();
-        var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+        //var geo = extmap.down("#tourMap").getGeo();
+        //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
         this.plotRoute(map, currentPosition, position);
 
         // stop updates to center
@@ -145,40 +149,20 @@ Ext.define('MyApp.controller.PetTracker', {
 
     plotRoute: function (map, orig, dest) {
         this.directionsDisplay.setMap(map);
-		var waypts = [];
-		//var checkboxArray = document.getElementById("waypoints");
-		if (this.markers.length > 0) 
-             Ext.each(this.markers, function (marker) {
-                 waypts.push({
-				location:marker.getPosition(),
-				stopover:true
-				});
-			};
 
-		var request = {
-			origin: orig,
-			destination: dest,
-			waypoints: waypts,
-			optimizeWaypoints: true,
-			travelMode: google.maps.TravelMode.WALKING
-		};
+        var dd = this.directionsDisplay;
 
-        this.directionsService.route(request, function(response, status) {
-			if (status == google.maps.DirectionsStatus.OK) {
-				directionsDisplay.setDirections(response);
-				var route = response.routes[0];
-				var summaryPanel = document.getElementById("directions_panel");
-				summaryPanel.innerHTML = "";
-      // For each route, display summary information.
-				for (var i = 0; i < route.legs.length; i++) {
-					var routeSegment = i+1;
-					summaryPanel.innerHTML += "<b>Route Segment: " + routeSegment + "</b><br />";
-					summaryPanel.innerHTML += route.legs[i].start_address + " to ";
-					summaryPanel.innerHTML += route.legs[i].end_address + "<br />";
-					summaryPanel.innerHTML += route.legs[i].distance.text + "<br /><br />";
-				}
-			}
-		});
+        var selectedMode = "WALKING"; // DRIVING, WALKING, BICYCLING
+        var request = {
+            origin: orig,
+            destination: dest,
+            travelMode: google.maps.TravelMode[selectedMode]
+        };
+        this.directionsService.route(request, function (response, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+                dd.setDirections(response);
+            }
+        });
 
-
-});}
+    }
+});
