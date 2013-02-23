@@ -107,11 +107,11 @@ Ext.define('MyApp.controller.PetTracker', {
 
     renderMap: function (extmap, map, record) {
         // erase old markers
-        if (this.markers.length > 0) {
-            Ext.each(this.markers, function (marker) {
-                marker.setMap(null);
-            });
-        }
+        //if (this.markers.length > 0) {
+        //    Ext.each(this.markers, function (marker) {
+        //        marker.setMap(null);
+        //    });
+        //}
 
         var position = new google.maps.LatLng(record.latitude, record.longitude);
 
