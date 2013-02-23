@@ -109,7 +109,7 @@ Ext.define('MyApp.controller.PetTracker', {
          //erase old markers
          if (this.markers.length > 0) {
              Ext.each(this.markers, function (marker) {
-                 currentPosition = marker.getPosition();
+                 var currentPosition = marker.getPosition();
              });
 		 if (this.markers.length == 0){
 			 var geo = extmap.down("#tourMap").getGeo();
