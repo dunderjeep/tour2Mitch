@@ -157,9 +157,9 @@ Ext.define('MyApp.controller.PetTracker', {
             infowindow.open(map, dynaMarker2);
         });
 
-        setTimeout(function () {
-            map.panTo(position2);
-        }, 1000);
+        //setTimeout(function () {
+        //    map.panTo(position2);
+        //}, 1000);
 
         var geo = extmap.down("#tourMap").getGeo();
         var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
