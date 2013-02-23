@@ -134,7 +134,7 @@ Ext.define('MyApp.controller.PetTracker', {
 
         setTimeout(function () {
             map.panTo(position);
-        }, 100);
+        }, 1000);
 
         var geo = extmap.down("#tourMap").getGeo();
         var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
@@ -147,19 +147,19 @@ Ext.define('MyApp.controller.PetTracker', {
             icon: 'resources/img/yellow_MarkerB.png'
         });
 
-        this.markers.push(dynaMarker);
+        this.markers.push(dynaMarker2);
 
-        var infowindow = new google.maps.InfoWindow({
+        var infowindow2 = new google.maps.InfoWindow({
             content: "We've found your dog sniffing flowers!"
         });
 
-        google.maps.event.addListener(dynaMarker, 'click', function () {
-            infowindow.open(map, dynaMarker);
+        google.maps.event.addListener(dynaMarker2, 'click', function () {
+            infowindow.open(map, dynaMarker2);
         });
 
         setTimeout(function () {
             map.panTo(position2);
-        }, 100);
+        }, 1000);
 
         var geo = extmap.down("#tourMap").getGeo();
         var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
