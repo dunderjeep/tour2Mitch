@@ -15,6 +15,7 @@
  *    limitations under the License.
  */
 Ext.define('MyApp.controller.PetTracker', {
+	var oldPosition;
     extend: 'Ext.app.Controller',
     markers: [],
     directionsDisplay: null,
@@ -107,10 +108,10 @@ Ext.define('MyApp.controller.PetTracker', {
 
     renderMap: function (extmap, map, record) {
          //erase old markers
-         //if (this.markers.length > 0) {
-           //  Ext.each(this.markers, function (marker) {
-             //    currentPosition = marker.position;
-             //});
+         if (this.markers.length > 0) {
+             Ext.each(this.markers, function (marker) {
+                 currentPosition = oldPosition;
+             });
 		 if (this.markers.length == 0){
 			 var geo = extmap.down("#tourMap").getGeo();
 			 var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
@@ -142,6 +143,7 @@ Ext.define('MyApp.controller.PetTracker', {
         //var geo = extmap.down("#tourMap").getGeo();
         //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
         this.plotRoute(map, currentPosition, position);
+		oldPosition =position;
 
         // stop updates to center
         geo.suspendUpdates();
