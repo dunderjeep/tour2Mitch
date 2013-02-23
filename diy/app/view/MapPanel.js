@@ -18,7 +18,7 @@
 Ext.define('MyApp.view.MapPanel', {
     extend: 'Ext.Panel',
     requires: 'Ext.Map',
-    alias: 'widget.tourMap',
+    alias: 'widget.petMap',
     id: 'myMapPanel',
     config: {
         layout: 'fit',
@@ -66,8 +66,8 @@ Ext.define('MyApp.view.MapPanel', {
 
         var map = {
             xtype: 'map',
-            id: 'tourMap',
-            itemId: 'tourMap',
+            id: 'petMap',
+            itemId: 'petMap',
             styleHtmlContent: true,
             mapOptions: {
                 zoom: 11,
