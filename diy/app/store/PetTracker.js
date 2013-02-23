@@ -30,7 +30,7 @@ Ext.define('MyApp.store.PetTracker', {
             url: 'http://tourdb-kingston.rhcloud.com/dogtag',
             reader: {
                 type: 'json',
-                idProperty: 'tour',
+                idProperty: '_id',
                 rootProperty: 'records',
                 useSimpleAccessors: true
             }

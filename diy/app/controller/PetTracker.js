@@ -106,12 +106,15 @@ Ext.define('MyApp.controller.PetTracker', {
     },
 
     renderMap: function (extmap, map, record) {
-        // erase old markers
-        //if (this.markers.length > 0) {
-        //    Ext.each(this.markers, function (marker) {
-        //        marker.setMap(null);
-        //    });
-        //}
+         //erase old markers
+        if (this.markers.length > 0) {
+            Ext.each(this.markers, function (marker) {
+                currentPosition = marker.position;
+            });
+		else{
+			var geo = extmap.down("#tourMap").getGeo();
+			var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+			};
 
         var position = new google.maps.LatLng(record.latitude, record.longitude);
 
@@ -136,34 +139,9 @@ Ext.define('MyApp.controller.PetTracker', {
             map.panTo(position);
         }, 1000);
 
-        var geo = extmap.down("#tourMap").getGeo();
-        var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+        //var geo = extmap.down("#tourMap").getGeo();
+        //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
         this.plotRoute(map, currentPosition, position);
-		
-		// var dynaMarker2 = new google.maps.Marker({
-            // position2: position[1],
-            // title: record.name + "'s Location",
-            // map: map,
-            // icon: 'resources/img/yellow_MarkerB.png'
-        // });
-
-        // this.markers.push(dynaMarker2);
-
-        // var infowindow2 = new google.maps.InfoWindow({
-            // content: "We've found your dog sniffing flowers!"
-        // });
-
-        // google.maps.event.addListener(dynaMarker2, 'click', function () {
-            // infowindow.open(map, dynaMarker2);
-        // });
-
-        // //setTimeout(function () {
-        // //    map.panTo(position2);
-        // //}, 1000);
-
-        // //var geo = extmap.down("#tourMap").getGeo();
-        // //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
-        // this.plotRoute(map, position, position2);
 
         // stop updates to center
         geo.suspendUpdates();
