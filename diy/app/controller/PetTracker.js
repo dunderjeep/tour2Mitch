@@ -80,7 +80,7 @@ Ext.define('MyApp.controller.PetTracker', {
     },
     onPickerRadiusChange: function(picker, pickerValue) {
         var store = Ext.getStore('PetTracker');
-        var gmap = this.gettourMap().down("#tourMap");
+        var gmap = this.getTourMap().down("#tourMap");
         var geo = gmap.getGeo();
         var g_marks = this.markers;
         store.getProxy().setUrl('http://tourdb-kingston.rhcloud.com/dogtag'
