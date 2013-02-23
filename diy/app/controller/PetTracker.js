@@ -149,7 +149,6 @@ Ext.define('MyApp.controller.PetTracker', {
 
     plotRoute: function (map, orig, dest) {
         this.directionsDisplay.setMap(map);
-
         var dd = this.directionsDisplay;
 
         var selectedMode = "WALKING"; // DRIVING, WALKING, BICYCLING
@@ -158,7 +157,7 @@ Ext.define('MyApp.controller.PetTracker', {
             destination: dest,
             travelMode: google.maps.TravelMode[selectedMode]
         };
-        this.directionsService.route(request, function (response, status) {
+        this.directionsService.leg(request, function (response, status) {
             if (status === google.maps.DirectionsStatus.OK) {
                 dd.setDirections(response);
             }
