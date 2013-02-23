@@ -140,30 +140,30 @@ Ext.define('MyApp.controller.PetTracker', {
         var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
         this.plotRoute(map, currentPosition, position);
 		
-		var dynaMarker2 = new google.maps.Marker({
-            position2: position[1],
-            title: record.name + "'s Location",
-            map: map,
-            icon: 'resources/img/yellow_MarkerB.png'
-        });
+		// var dynaMarker2 = new google.maps.Marker({
+            // position2: position[1],
+            // title: record.name + "'s Location",
+            // map: map,
+            // icon: 'resources/img/yellow_MarkerB.png'
+        // });
 
-        this.markers.push(dynaMarker2);
+        // this.markers.push(dynaMarker2);
 
-        var infowindow2 = new google.maps.InfoWindow({
-            content: "We've found your dog sniffing flowers!"
-        });
+        // var infowindow2 = new google.maps.InfoWindow({
+            // content: "We've found your dog sniffing flowers!"
+        // });
 
-        google.maps.event.addListener(dynaMarker2, 'click', function () {
-            infowindow.open(map, dynaMarker2);
-        });
+        // google.maps.event.addListener(dynaMarker2, 'click', function () {
+            // infowindow.open(map, dynaMarker2);
+        // });
 
-        //setTimeout(function () {
-        //    map.panTo(position2);
-        //}, 1000);
+        // //setTimeout(function () {
+        // //    map.panTo(position2);
+        // //}, 1000);
 
-        //var geo = extmap.down("#tourMap").getGeo();
-        //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
-        this.plotRoute(map, position, position2);
+        // //var geo = extmap.down("#tourMap").getGeo();
+        // //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+        // this.plotRoute(map, position, position2);
 
         // stop updates to center
         geo.suspendUpdates();
