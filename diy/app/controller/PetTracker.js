@@ -181,5 +181,4 @@ Ext.define('MyApp.controller.PetTracker', {
 		});
 
 
-    }
-});
+});}
