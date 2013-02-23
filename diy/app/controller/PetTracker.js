@@ -107,7 +107,7 @@ Ext.define('MyApp.controller.PetTracker', {
 
     renderMap: function (extmap, map, record) {
          //erase old markers
-         if (this.markers.length > 0) {
+         if (this.markers.length > 0) 
              Ext.each(this.markers, function (marker) {
                 // var currentPosition = marker.getPosition();
              });
