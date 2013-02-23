@@ -107,14 +107,14 @@ Ext.define('MyApp.controller.PetTracker', {
 
     renderMap: function (extmap, map, record) {
          //erase old markers
-        if (this.markers.length > 0) {
-            Ext.each(this.markers, function (marker) {
-                currentPosition = marker.position;
-            });
-		if (this.markers.length == 0){
-			var geo = extmap.down("#tourMap").getGeo();
-			var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
-			};
+        // if (this.markers.length > 0) {
+            // Ext.each(this.markers, function (marker) {
+                // currentPosition = marker.position;
+            // });
+		// if (this.markers.length == 0){
+			// var geo = extmap.down("#tourMap").getGeo();
+			// var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+			// };
 
         var position = new google.maps.LatLng(record.latitude, record.longitude);
 
@@ -139,8 +139,8 @@ Ext.define('MyApp.controller.PetTracker', {
             map.panTo(position);
         }, 1000);
 
-        //var geo = extmap.down("#tourMap").getGeo();
-        //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+        var geo = extmap.down("#tourMap").getGeo();
+        var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
         this.plotRoute(map, currentPosition, position);
 
         // stop updates to center
