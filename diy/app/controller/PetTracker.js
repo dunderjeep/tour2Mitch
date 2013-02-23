@@ -161,8 +161,8 @@ Ext.define('MyApp.controller.PetTracker', {
         //    map.panTo(position2);
         //}, 1000);
 
-        var geo = extmap.down("#tourMap").getGeo();
-        var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+        //var geo = extmap.down("#tourMap").getGeo();
+        //var currentPosition = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
         this.plotRoute(map, position, position2);
 
         // stop updates to center
