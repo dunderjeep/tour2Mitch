@@ -37,7 +37,8 @@ Ext.define('MyApp.view.PetPanel', {
 //                onItemDisclosure: true,
                 loadingText: "Loading Tours",
                 itemTpl:[
-                    '<div>{name} is a {description} and is located at {latitude} (latitude) and {longitude} (longitude)</div>'
+                    '<div>{name} is {description}'
+					//'<div>{name} is {description} and is located at {latitude} (latitude) and {longitude} (longitude)</div>'
                 ]
             }
         ],
