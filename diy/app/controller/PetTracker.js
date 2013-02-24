@@ -128,7 +128,7 @@ Ext.define('MyApp.controller.PetTracker', {
         this.markers.push(dynaMarker);
 
         var infowindow = new google.maps.InfoWindow({
-            content: record.name + '<IMG BORDER="0" ALIGN="Left" SRC="http://profile.ak.fbcdn.net/hprofile-ak-ash4/c10.142.160.160/249630_10150223150958105_294148_a.jpg">' 
+            content: record.name + '<IMG BORDER="0" ALIGN="Bottom" SRC="http://profile.ak.fbcdn.net/hprofile-ak-ash4/c10.142.160.160/249630_10150223150958105_294148_a.jpg">' 
         });
 
         google.maps.event.addListener(dynaMarker, 'click', function () {
